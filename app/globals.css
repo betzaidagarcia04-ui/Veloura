@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --font-space: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #F7F5EE;
+  color: #2D3E2A;
+  font-family: var(--font-space);
+}
+
+::selection {
+  background-color: rgba(201, 168, 124, 0.3);
+  color: #2D3E2A;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #F7F5EE; }
+::-webkit-scrollbar-thumb { background: #E0DBD0; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #C8C0B0; }
+
+@layer utilities {
+  /* Forest → Gold headline gradient */
+  .text-gradient-accent {
+    background: linear-gradient(135deg, #2D3E2A, #C9A87C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Pure gold gradient */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #C9A87C, #DFC49A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Light glass for overlays */
+  .glass {
+    background: rgba(247, 245, 238, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(224, 219, 208, 0.9);
+  }
+
+  .glass-dark {
+    background: rgba(45, 62, 42, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(61, 85, 56, 0.5);
+  }
+
+  .glass-light {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(224, 219, 208, 0.6);
+  }
+}
+
+@layer components {
+  /* Primary CTA — forest deep fill */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-200;
+    background: #2D3E2A;
+    color: #F7F5EE;
+    box-shadow: 0 4px 16px rgba(45, 62, 42, 0.2);
+  }
+  .btn-primary:hover {
+    background: #1E2D1C;
+    box-shadow: 0 6px 24px rgba(45, 62, 42, 0.3);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active { transform: translateY(0); }
+
+  /* Gold CTA — champagne fill */
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-200;
+    background: linear-gradient(135deg, #C9A87C, #DFC49A);
+    color: #2D3E2A;
+    box-shadow: 0 4px 16px rgba(201, 168, 124, 0.35);
+  }
+  .btn-gold:hover {
+    box-shadow: 0 6px 24px rgba(201, 168, 124, 0.5);
+    transform: translateY(-1px);
+  }
+
+  /* Outline — forest border */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-200;
+    border: 1.5px solid #2D3E2A;
+    color: #2D3E2A;
+    background: transparent;
+  }
+  .btn-outline:hover {
+    background: #2D3E2A;
+    color: #F7F5EE;
+  }
+
+  /* Card surface */
+  .card-surface {
+    @apply rounded-2xl;
+    background: #FFFFFF;
+    border: 1px solid #E0DBD0;
+    box-shadow: 0 2px 20px rgba(45, 62, 42, 0.07), inset 0 1px 0 rgba(255,255,255,0.8);
+  }
+  .card-surface:hover {
+    box-shadow: 0 8px 40px rgba(45, 62, 42, 0.11);
+  }
+
+  /* Divider */
+  .divider {
+    @apply border-t border-border;
+  }
+}

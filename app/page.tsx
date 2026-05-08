@@ -5,11 +5,12 @@ import ProductShowcase from '@/components/home/ProductShowcase'
 import SocialProof from '@/components/home/SocialProof'
 import Urgency from '@/components/home/Urgency'
 import { getAllProducts } from '@/lib/shopify'
+import type { ShopifyProduct } from '@/lib/shopify/types'
 
 export const revalidate = 3600
 
 export default async function HomePage() {
-  let products = []
+  let products: ShopifyProduct[] = []
 
   try {
     products = await getAllProducts(8)
